@@ -5,6 +5,9 @@
 _Bool L_WIN = 0;
 _Bool L_MAC = 0;
 
+#define WIN_MOD_INDEX 16
+#define MAC_MOD_INDEX 17
+
 enum layer_names {
     _WIN,
     _MAC,
