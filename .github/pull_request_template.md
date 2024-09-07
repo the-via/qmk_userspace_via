@@ -23,6 +23,6 @@
 <!--- Put an `x` in all the boxes that apply. -->
 
 - [ ] The VIA support for this keyboard is **MERGED** in QMK master already **(MANDATORY)**
-- [ ] VIA keymap uses custom menus **(MANDATORY)**
 - [ ] I have tested this keyboard definition with firmware on a device.**(MANDATORY)**
+- [ ] VIA keymap uses custom menus
 - [ ] The Vendor ID is not `0xFEED`
