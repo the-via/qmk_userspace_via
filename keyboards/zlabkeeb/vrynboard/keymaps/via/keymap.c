@@ -19,7 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-     [0] = LAYOUT(
+    [0] = LAYOUT(
         QK_KB_0,
         KC_VOLD,   KC_MUTE,   KC_VOLU,
         KC_LEFT,   KC_MPLY,   KC_RGHT,
