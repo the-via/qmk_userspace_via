@@ -1,6 +1,7 @@
 {
     "userspace_version": "1.1",
     "build_targets": [
-        ["all", "via"]
+        ["all", "via"],
+        ["jaykeeb/jk60rgb", "via"]
     ]
 }
