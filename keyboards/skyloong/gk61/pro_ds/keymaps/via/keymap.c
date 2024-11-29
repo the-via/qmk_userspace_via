@@ -60,18 +60,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_WIN_INDEX] =  LAYOUT_all(
         KC_GRV ,    KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,       KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   KC_DEL,
-        _______,  _______,    DF(0),    DF(1),  _______,  _______,     _______,  _______,  _______,  _______,  RGB_M_P,  RGB_RMOD, RGB_RMOD, RGB_TOG,
-        _______,  _______,  _______,  _______,  _______,  _______,     _______,  _______,  _______,  _______,  RGB_SPD,  RGB_SPI,            _______,
-        _______,  _______,  _______,  _______,  _______,  _______,     _______,  _______,  RGB_VAD,  RGB_VAI,  KC_UP,              _______,
-        _______,  _______,  _______,            _______,  _______,                         _______,  KC_LEFT,  _______,  KC_DOWN,            KC_RIGHT
+        _______,  _______,    DF(0),    DF(1),  _______,  _______,     _______,  _______,  _______,  _______,   RGB_M_P,  RM_PREV,  RM_NEXT,  RM_TOGG,
+        _______,  _______,  _______,  _______,  _______,  _______,     _______,  _______,  _______,  _______,   RM_SPDD,  RM_SPDU,            _______,
+        _______,  _______,  _______,  _______,  _______,  _______,     _______,  _______,  RM_VALD,  RM_VALU,     KC_UP,            _______,
+        _______,  _______,  _______,            _______,  _______,                         _______,  KC_LEFT,   _______,  KC_DOWN,            KC_RIGHT
     ),
 
     [_MAC_INDEX] = LAYOUT_all(
-        KC_GRV ,   KC_F14,   KC_F15,  C(KC_UP),  G(KC_D),  G(KC_SPC),   LAG(KC_EJCT),  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,   KC_VOLD,  KC_VOLU,  KC_DEL,
-        _______,  _______,    DF(0),     DF(1),  _______,    _______,     _______,  _______,  _______,  _______,  RGB_M_P,  RGB_RMOD, RGB_RMOD, RGB_TOG,
-        _______,  _______,  _______,   _______,  _______,    _______,     _______,  _______,  _______,  _______,  RGB_SPD,   RGB_SPI,           _______,
-        _______,  _______,  _______,   _______,  _______,    _______,     _______,  _______,  RGB_VAD,  RGB_VAI,  KC_UP,              _______,
-        _______,  _______,  _______,             _______,    _______,                         _______,  KC_LEFT,  _______,   KC_DOWN,           KC_RIGHT
+        KC_GRV ,   KC_F14,   KC_F15,  C(KC_UP),  G(KC_D),  G(KC_SPC),   LAG(KC_EJCT),  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,   KC_VOLD,  KC_VOLU,   KC_DEL,
+        _______,  _______,    DF(0),     DF(1),  _______,    _______,     _______,     _______,  _______,  _______,  RGB_M_P,   RM_PREV,  RM_NEXT,  RM_TOGG,
+        _______,  _______,  _______,   _______,  _______,    _______,     _______,     _______,  _______,  _______,  RM_SPDD,   RM_SPDU,            _______,
+        _______,  _______,  _______,   _______,  _______,    _______,     _______,     _______,  RM_VALD,  RM_VALU,    KC_UP,             _______,
+        _______,  _______,  _______,             _______,    _______,                            _______,  KC_LEFT,  _______,   KC_DOWN,           KC_RIGHT
     )
 };
 
@@ -175,7 +175,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     switch (keycode) {
 #    ifdef RGB_MATRIX_ENABLE
-        case RGB_TOG:
+        case RM_TOGG:
             if (record->event.pressed) {
                 switch (rgb_matrix_get_flags()) {
                     case LED_FLAG_ALL: {
@@ -188,7 +188,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 }
             }
          return false;
-        case RGB_VAI:
+        case RM_VALU:
           rgb_matrix_set_flags(LED_FLAG_ALL);
           return true;
 #    endif
