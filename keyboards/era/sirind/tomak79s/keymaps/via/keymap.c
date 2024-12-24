@@ -63,11 +63,7 @@ void matrix_init_kb(void) {
     matrix_init_user();
 }
 
-bool rgb_matrix_indicators_kb(void) {
-    if (!rgb_matrix_indicators_user()) {
-         return false;
-    }
-    
+bool rgb_matrix_indicators_user(void) {
     if (g_tomak_config.indicator_toggle) {
         RGB rgb_caps = hsv_to_rgb( (HSV){ .h = g_tomak_config.indicator_hsv.h,
                                           .s = g_tomak_config.indicator_hsv.s,
@@ -89,7 +85,7 @@ bool rgb_matrix_indicators_kb(void) {
         }
     }
     
-    return true;
+    return false;
 }
 
 #ifdef TOMAK_CONFIG_SYNC
