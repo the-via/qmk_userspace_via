@@ -102,14 +102,14 @@ bool rgb_matrix_indicators_user(void) {
 #if defined(RGB_MATRIX_ENABLE)
 
 #define INDICATOR_RGB_DIVISOR 4
-extern rgb_led_t rgb_matrix_ws2812_array[WS2812_LED_COUNT];
+extern ws2812_led_t ws2812_leds[WS2812_LED_COUNT];
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     for (uint8_t i = led_min; i < led_max; i++) {
         if (g_led_config.flags[i] & LED_FLAG_INDICATOR) {
             RGB temp_rgb = {0};
-            temp_rgb.r   = rgb_matrix_ws2812_array[i].r / INDICATOR_RGB_DIVISOR ;
-            temp_rgb.g   = rgb_matrix_ws2812_array[i].g / INDICATOR_RGB_DIVISOR ;
-            temp_rgb.b   = rgb_matrix_ws2812_array[i].b / INDICATOR_RGB_DIVISOR ;
+            temp_rgb.r   = ws2812_leds[i].r / INDICATOR_RGB_DIVISOR ;
+            temp_rgb.g   = ws2812_leds[i].g / INDICATOR_RGB_DIVISOR ;
+            temp_rgb.b   = ws2812_leds[i].b / INDICATOR_RGB_DIVISOR ;
             rgb_matrix_set_color(i, temp_rgb.r, temp_rgb.g, temp_rgb.b);
         }
 
