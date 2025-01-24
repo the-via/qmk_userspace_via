@@ -1,4 +1,4 @@
-VIA_ENABLE = yes// Copyright 2024 Hyojin Bak (@eerraa)
+// Copyright 2024 Hyojin Bak (@eerraa)
 // SPDX-License-Identifier: GPL-2.0-or-later
  
 #pragma once
