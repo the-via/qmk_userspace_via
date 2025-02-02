@@ -17,3 +17,9 @@ Are you a keyboard maker or a developer interested in adding support for your ke
 3. Create a definition in JSON format for your keyboard and submit it as a pull request to [VIA's Keyboards Repository](https://github.com/the-via/keyboards) Master branch. 
 
 Please follow our [Specification documentation](https://www.caniusevia.com/docs/specification) carefully to ensure your pull request is smoothly reviewed and merged. 
+
+## What to add in this repository
+
+1. add a `keymaps/via` directory, inside your keyboard directory--e. g. `cipulot/60xt/keymaps/via` for the `cipulot/60xt` keyboard
+2. add a `rules.mk` file with `VIA_ENABLE = yes` in it--the `yes` needs to be in lowercase
+3. add a `keymap.c` with full layout and sane default keycodes to it
