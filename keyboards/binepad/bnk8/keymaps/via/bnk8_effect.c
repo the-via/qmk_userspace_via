@@ -11,11 +11,31 @@
 #    include "via.h"
 #    include "bnk8.h"
 
-#    define RGB_PER_KEY_DEFAULT_COLOR {.h = RGB_MATRIX_DEFAULT_HUE, .s = RGB_MATRIX_DEFAULT_SAT}
+// clang-format off
 
-user_config_t g_user_config = {.color = {RGB_PER_KEY_DEFAULT_COLOR, RGB_PER_KEY_DEFAULT_COLOR, RGB_PER_KEY_DEFAULT_COLOR, RGB_PER_KEY_DEFAULT_COLOR, RGB_PER_KEY_DEFAULT_COLOR, RGB_PER_KEY_DEFAULT_COLOR, RGB_PER_KEY_DEFAULT_COLOR, RGB_PER_KEY_DEFAULT_COLOR}};
+#    define RGB_PER_KEY_DEFAULT_COLOR \
+        { .h = RGB_MATRIX_DEFAULT_HUE, \
+          .s = RGB_MATRIX_DEFAULT_SAT }
 
-enum via_per_key_value { id_custom_color = 1 };
+#    define BNK8_CONFIG_EEPROM_ADDR (VIA_EEPROM_CUSTOM_CONFIG_ADDR)
+
+user_config_t g_user_config = {
+    .color = {
+        RGB_PER_KEY_DEFAULT_COLOR,
+        RGB_PER_KEY_DEFAULT_COLOR,
+        RGB_PER_KEY_DEFAULT_COLOR,
+        RGB_PER_KEY_DEFAULT_COLOR,
+        RGB_PER_KEY_DEFAULT_COLOR,
+        RGB_PER_KEY_DEFAULT_COLOR,
+        RGB_PER_KEY_DEFAULT_COLOR,
+        RGB_PER_KEY_DEFAULT_COLOR
+    } };
+
+enum via_per_key_value {
+    id_custom_color = 1
+};
+
+// clang-format on
 
 // *** Helpers ***
 
@@ -48,11 +68,20 @@ void bnk8_config_get_value(uint8_t *data) {
 }
 
 void bnk8_config_load(void) {
-    eeprom_read_block(&g_user_config.raw, EECONFIG_USER, sizeof(user_config_t));
+    // clang-format off
+    eeprom_read_block( &g_user_config.raw,
+        ((void*)BNK8_CONFIG_EEPROM_ADDR),
+        sizeof(user_config_t) );
+    // clang-format on
 }
 
 void bnk8_config_save(void) {
-    eeprom_update_block(&g_user_config.raw, EECONFIG_USER, sizeof(user_config_t));
+    // clang-format off
+    eeprom_update_block(
+        &g_user_config.raw,
+        ((void*)BNK8_CONFIG_EEPROM_ADDR),
+        sizeof(user_config_t) );
+    // clang-format on
 }
 
 void via_custom_value_command_kb(uint8_t *data, uint8_t length) {
