@@ -1,6 +1,7 @@
 {
     "userspace_version": "1.1",
     "build_targets": [
-        ["all", "via"]
+        ["all", "via"],
+        ["uzu42/rev1", "via"]
     ]
 }
