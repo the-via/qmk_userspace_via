@@ -14,7 +14,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
- #undef VENDOR_ID
- #define VENDOR_ID 0x1209
- #undef PRODUCT_ID
- #define PRODUCT_ID 0x1337
+#undef VENDOR_ID
+#define VENDOR_ID 0x1209
+#undef PRODUCT_ID
+#define PRODUCT_ID 0x1337
+
+#define ONESHOT_TIMEOUT 5000
