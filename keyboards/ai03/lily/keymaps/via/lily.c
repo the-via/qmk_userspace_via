@@ -116,6 +116,12 @@ bool set_indicator(indicator_config indicator) {
 }
 
 bool indicators_callback(void) {
+    // This function handles the THT LED since the QMK one get's overwritten by this function
+    if (host_keyboard_led_state().caps_lock) {
+        writePinLow(B0);
+    } else {
+        writePinHigh(B0);
+    }
     // Basic functioning: for each indicator, set_indicator is used to decide if the current indicator should be lit or off.
     indicator_config *current_indicator_p;
     int               index;
