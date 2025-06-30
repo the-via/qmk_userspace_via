@@ -99,6 +99,8 @@ bool func_switch(uint8_t func) {
         case 0x05: // layer 1
         case 0x06: // layer 2
         case 0x07: // layer 3
+        case 0x08: // layer 4
+        case 0x09: // layer 5
         {
             if (IS_LAYER_ON((int)(func)-4)) return true;
             break;
