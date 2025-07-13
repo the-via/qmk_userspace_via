@@ -16,61 +16,64 @@
 
 #include QMK_KEYBOARD_H
 
+enum custom_keycodes {
+    LAYER_ROTATE = SAFE_RANGE,
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /*
      * ┌───┐
-     * │Tog│ 
-     * ├───┼───┬───┐ 
+     * │Tog│
+     * ├───┼───┬───┐
      * │ 7 │ 8 │ 9 │
      * ├───┼───┼───┤
      * │ 4 │ 5 │ 6 │
      * ├───┼───┼───┤
-     * │ 1 │ 2 │ 3 │ 
+     * │ 1 │ 2 │ 3 │
      * └───┴───┴───┘
      */
     [0] = LAYOUT(
-        LT(0, KC_NO),
+        LAYER_ROTATE,
         KC_7,   KC_8,   KC_9,
         KC_4,   KC_5,   KC_6,
         KC_1,   KC_2,   KC_3
     ),
 
     [1] = LAYOUT(
-        LT(0, KC_NO),
+        LAYER_ROTATE,
         KC_A,   KC_B,   KC_C,
         KC_D,   KC_E,   KC_F,
         KC_G,   KC_H,   KC_I
     ),
 
     [2] = LAYOUT(
-        LT(0, KC_NO),
+        LAYER_ROTATE,
         KC_J,   KC_K,   KC_L,
         KC_M,   KC_N,   KC_O,
         KC_P,   KC_Q,   KC_R
     ),
 
     [3] = LAYOUT(
-        LT(0, KC_NO),
+        LAYER_ROTATE,
         KC_S,   KC_T,   KC_U,
         KC_V,   KC_W,   KC_X,
         KC_Y,   KC_Z,   KC_ENT
     )
 };
 
-bool process_record_user(uint16_t keycode, keyrecord_t * record) {
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case LT(0, KC_NO):
-            if (record -> event.pressed) {
+        case LAYER_ROTATE:
+            if (record->event.pressed) {
                 // Move to next layer on tap
                 uint8_t current_layer = get_highest_layer(layer_state);
-                if (current_layer < 3) {
-                    layer_move(current_layer + 1);
-                } else {
-                    layer_move(0); // Wrap around to first layer
-                }
+                uint8_t next_layer    = layer >= 3 ? 0 : layer + 1;
+                layer_move(next_layer);
                 return false; // Prevent further processing of this key
             }
             break;
+        default:
+            return true;
     }
     return true; // Allow other keycodes to be processed normally
 }
