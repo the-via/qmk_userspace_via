@@ -21,11 +21,11 @@
         "cols": ["E6", "B4", "B5", "B6", "D3"],
         "rows": ["D1", "D0", "D4", "C6", "D7"]
     },
-    "url": "",
+   
     "usb": {
         "device_version": "1.0.0",
         "pid": "0x0001",
-        "vid": "0xfffe"
+        "vid": "0x6B67"
     },
     "layouts": {
         "LAYOUT_ortho_5x5": {
