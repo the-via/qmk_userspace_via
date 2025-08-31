@@ -1,4 +1,4 @@
-/* Copyright 2020-2021 adamkraus6
+/* Copyright 2020-2025 Adam Kraus
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,6 +14,15 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include QMK_KEYBOARD_H
+
+#if defined(ENCODER_MAP_ENABLE)
+const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
+    [0] = { ENCODER_CCW_CW(UG_HUED, UG_HUEU),  ENCODER_CCW_CW(UG_SATD, UG_SATU),  ENCODER_CCW_CW(UG_VALD, UG_VALU)  },
+    [1] = { ENCODER_CCW_CW(KC_TRNS, KC_TRNS),  ENCODER_CCW_CW(KC_TRNS, KC_TRNS),  ENCODER_CCW_CW(KC_TRNS, KC_TRNS)  },
+    [2] = { ENCODER_CCW_CW(KC_TRNS, KC_TRNS),  ENCODER_CCW_CW(KC_TRNS, KC_TRNS),  ENCODER_CCW_CW(KC_TRNS, KC_TRNS)  },
+    [3] = { ENCODER_CCW_CW(KC_TRNS, KC_TRNS),  ENCODER_CCW_CW(KC_TRNS, KC_TRNS),  ENCODER_CCW_CW(KC_TRNS, KC_TRNS)  },
+};
+#endif
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT(
@@ -44,26 +53,3 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO,     KC_NO,     KC_NO
         )
 };
-
-bool encoder_update_user(uint8_t index, bool clockwise) {
-    if (index == 0) { /* First encoder */
-        if (clockwise) {
-        rgblight_increase_hue(); //Cycle through the RGB hue
-        } else {
-        rgblight_decrease_hue();
-        }
-    } else if (index == 1) { /* Second encoder */
-        if (clockwise) {
-        rgblight_increase_sat();
-        } else {
-        rgblight_decrease_sat();
-        }
-    } else if (index == 2) { /* Third encoder */
-        if (clockwise) {
-        rgblight_increase_val(); //Change brightness on the RGB LEDs
-        } else {
-        rgblight_decrease_val();
-        }
-    }
-    return true;
-}
