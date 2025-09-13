@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 #include QMK_KEYBOARD_H
+#include "transactions.h"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -54,17 +55,13 @@ typedef struct _indicator_config_t {
 indicator_config_t indicator_config;
 
 void indicator_config_write_to_eeprom(void) {
-#   ifdef EECONFIG_USER_DATA_SIZE
-    eeconfig_update_user_datablock(&indicator_config);
+    eeconfig_update_user_datablock(&indicator_config, 0, EECONFIG_USER_DATA_SIZE);
     dprintf("Indicator config written to EEPROM\n");
-#   endif
 }
 
 void indicator_config_read_from_eeprom(void) {
-#   ifdef EECONFIG_USER_DATA_SIZE
-    eeconfig_read_user_datablock(&indicator_config);
+    eeconfig_read_user_datablock(&indicator_config, 0, EECONFIG_USER_DATA_SIZE);
     dprintf("Indicator config read from EEPROM\n");
-#   endif
 }
 
 void indicator_config_slave_handler(uint8_t m2s_size, const void* m2s_buffer, uint8_t s2m_size, void* s2m_buffer) {
