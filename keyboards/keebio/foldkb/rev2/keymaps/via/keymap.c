@@ -1,18 +1,5 @@
-/* Copyright 2021 Danny Nguyen <danny@keeb.io>
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+// Copyright 2025 Keebio (@keebio)
+// SPDX-License-Identifier: GPL-2.0-or-later
 
 #include "encoder.h"
 #include QMK_KEYBOARD_H
@@ -27,10 +14,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [1] = LAYOUT(
     KC_MUTE, QK_BOOT, KC_F12,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,       KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  _______, KC_DEL,
-    BL_STEP,          RM_NEXT, UG_SATD, UG_SATU, _______, _______, _______,     _______, KC_7,    KC_8,    KC_9,    _______, _______, _______, _______,
-    UG_NEXT,          RM_TOGG, UG_VALD, UG_VALU, _______, _______, _______,     _______, KC_4,    KC_5,    KC_6,    _______, _______,          _______,
-    KC_VOLU,          _______, UG_HUED, UG_HUEU, _______, _______, _______,     _______, KC_1,    KC_2,    KC_3,    _______, _______, _______,
-    KC_VOLD,          _______, _______, _______, _______, _______, _______,     _______, KC_0,    _______, _______, _______, _______
+    RM_TOGG,          _______, RM_SATD, RM_SATU, _______, _______, _______,     _______, KC_7,    KC_8,    KC_9,    _______, _______, _______, _______,
+    RM_NEXT,          _______, RM_VALD, RM_VALU, _______, _______, _______,     _______, KC_4,    KC_5,    KC_6,    _______, _______,          _______,
+    KC_VOLU,          _______, RM_HUED, RM_HUEU, _______, _______, _______,     _______, KC_1,    KC_2,    KC_3,    _______, _______, _______,
+    KC_VOLD,          _______, RM_SPDD, RM_SPDU, _______, _______, _______,     _______, KC_0,    _______, _______, _______, _______
   ),
   [2] = LAYOUT(
     _______, _______, _______, _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______, _______, _______, _______,
@@ -51,8 +38,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #ifdef ENCODER_MAP_ENABLE
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
     [0] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
-    [1] = { ENCODER_CCW_CW(UG_PREV, UG_NEXT) },
-    [2] = { ENCODER_CCW_CW(UG_HUED, UG_HUEU) },
-    [3] = { ENCODER_CCW_CW(UG_SATD, UG_SATU) },
+    [1] = { ENCODER_CCW_CW(RM_PREV, RM_NEXT) },
+    [2] = { ENCODER_CCW_CW(RM_HUED, RM_HUEU) },
+    [3] = { ENCODER_CCW_CW(RM_SATD, RM_SATU) },
 };
 #endif
