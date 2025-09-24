@@ -28,7 +28,7 @@ enum layers{
 
 /* Create a keycode to toggle RGB without writing to eeprom, important to enable/disable the non-eeprom-stored custom lighting on PERF layer */
 enum my_keycodes {
-  RGB_TOG_NO = SAFE_RANGE,
+  RM_TOGG_NO = SAFE_RANGE,
   RGB_M_2,
   RGB_M_3,
   RGB_M_4,
@@ -42,7 +42,7 @@ enum my_keycodes {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-    case RGB_TOG_NO:
+    case RM_TOGG_NO:
       if (record->event.pressed) {
         rgb_matrix_toggle_noeeprom();
       }
@@ -127,18 +127,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_FN1] = LAYOUT_75_ansi(    /* keymap for layer 3 */
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, RGB_TOG, RGB_VAD, RGB_VAI, KC_MPRV, KC_MPLY, KC_MNXT, KC_VOLD, KC_VOLU, KC_MUTE, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, RM_TOGG, RM_VALD, RM_VALU, KC_MPRV, KC_MPLY, KC_MNXT, KC_VOLD, KC_VOLU, KC_MUTE, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, RGB_M_P, RGB_M_2, RGB_M_3, RGB_M_4, RGB_M_5, RGB_M_6, RGB_M_7, RGB_M_8, RGB_M_9, RGB_M_0, KC_TRNS, KC_TRNS,      KC_TRNS,     KC_TRNS,
-        RGB_TOG, RGB_VAI, RGB_HUI, RGB_SAI, RGB_SPI, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,      KC_TRNS,     KC_TRNS,
-        KC_TRNS, RGB_VAD, RGB_HUD, RGB_SAD, RGB_SPD, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,               KC_TRNS,     KC_TRNS,
+        RM_TOGG, RM_VALU, RM_HUEU, RM_SATU, RM_SPDU, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,      KC_TRNS,     KC_TRNS,
+        KC_TRNS, RM_VALD, RM_HUED, RM_SATD, RM_SPDD, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,               KC_TRNS,     KC_TRNS,
         KC_TRNS,          KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, NK_TOGG, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,          KC_TRNS, KC_TRNS,
         KC_TRNS, TG(GAME),KC_TRNS,                            TO(PERF),                           KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
     ),
 
     [_FN2] = LAYOUT_75_ansi(    /* keymap for layer 4 */
-        KC_TRNS,   KC_TRNS, KC_TRNS, KC_TRNS, RGB_TOG_NO,KC_NO, KC_NO,   KC_MPRV, KC_MPLY, KC_MNXT, KC_VOLD, KC_VOLU, KC_MUTE, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS,   KC_TRNS, KC_TRNS, KC_TRNS, RM_TOGG_NO,KC_NO, KC_NO,   KC_MPRV, KC_MPLY, KC_MNXT, KC_VOLD, KC_VOLU, KC_MUTE, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_TRNS, KC_TRNS,      KC_TRNS,     KC_TRNS,
-        RGB_TOG_NO,KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,      KC_TRNS,     KC_TRNS,
+        RM_TOGG_NO,KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,      KC_TRNS,     KC_TRNS,
         KC_TRNS,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,               KC_TRNS,     KC_TRNS,
         KC_TRNS,            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,          KC_TRNS, KC_TRNS,
         KC_TRNS,   KC_NO,   KC_TRNS,                            TG(PERF),                           KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
