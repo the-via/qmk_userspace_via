@@ -12,12 +12,11 @@ typedef union {
 
 user_config_t user_config;
 
-enum layers{
+enum layers {
     WIN_BASE,
     MAC_BASE,
     WIN_FN,
     MAC_FN,
-
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -50,6 +49,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______,      GU_TOGG,                        KC_NO,                         KC_RALT, KC_APP,  KC_RCTL,          _______
     ),
 };
+
 extern uint8_t blink_cnt;
 bool process_record_user(uint16_t keycode, keyrecord_t *record)
 {
