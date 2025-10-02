@@ -29,9 +29,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		KC_LCTL, KC_LWIN, KC_LALT, KC_SPC, KC_LEFT, KC_DOWN, KC_RIGHT, MO(WIN_FN)),
 	[WIN_FN]   = LAYOUT_61(
 		KC_GRV, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, KC_DEL, 
-		_______, _______, _______, _______, _______, _______, KC_PSCR, KC_SCRL, KC_PAUS, _______, _______, RGB_VAD, RGB_VAI, RGB_MOD, 
-		_______, _______, DF(MAC_BASE), _______, _______, _______, KC_INS, KC_HOME, KC_PGUP, _______, RGB_SPD, RGB_SPI, _______,
-		_______, _______, _______, _______, _______, NK_TOGG, KC_DEL, KC_END,  KC_PGDN, RGB_HUI, KC_SLSH, _______,
+		_______, _______, _______, _______, _______, _______, KC_PSCR, KC_SCRL, KC_PAUS, _______, _______, RM_VALD, RM_VALU, RM_NEXT, 
+		_______, _______, DF(MAC_BASE), _______, _______, _______, KC_INS, KC_HOME, KC_PGUP, _______, RM_SPDD, RM_SPDU, _______,
+		_______, _______, _______, _______, _______, NK_TOGG, KC_DEL, KC_END,  KC_PGDN, RM_HUEU, KC_SLSH, _______,
 		_______, GU_TOGG, _______, KC_NO, KC_RALT, KC_APP, KC_RCTL, _______),
     [MAC_BASE] = LAYOUT_61(
 		KC_ESC,	KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_MINS, KC_EQL, KC_BSPC, 
@@ -41,9 +41,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		KC_LCTL, KC_LOPT, KC_LCMD, KC_SPC, KC_LEFT, KC_DOWN, KC_RIGHT, MO(MAC_FN)),
 	[MAC_FN]   = LAYOUT_61(
 		KC_GRV, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, KC_DEL, 
-		_______, _______, _______, _______, _______, _______, KC_PSCR, KC_SCRL, KC_PAUS, _______, _______, RGB_VAD, RGB_VAI, RGB_MOD, 
-		_______, DF(WIN_BASE),_______,  _______, _______, _______, KC_INS, KC_HOME, KC_PGUP, _______, RGB_SPD, RGB_SPI, _______,
-		_______, _______, _______, _______, _______, NK_TOGG, KC_DEL, KC_END,  KC_PGDN, RGB_HUI, KC_SLSH, _______,
+		_______, _______, _______, _______, _______, _______, KC_PSCR, KC_SCRL, KC_PAUS, _______, _______, RM_VALD, RM_VALU, RM_NEXT, 
+		_______, DF(WIN_BASE),_______,  _______, _______, _______, KC_INS, KC_HOME, KC_PGUP, _______, RM_SPDD, RM_SPDU, _______,
+		_______, _______, _______, _______, _______, NK_TOGG, KC_DEL, KC_END,  KC_PGDN, RM_HUEU, KC_SLSH, _______,
 		_______, _______, GU_TOGG, KC_NO, KC_RALT, KC_APP, KC_RCTL, _______),
 };
 extern uint8_t blink_cnt;
@@ -64,7 +64,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
 				set_single_persistent_default_layer(WIN_BASE);
 			}
 			return true;
-		case RGB_VAD:
+		case RM_VALD:
 			if (record->event.pressed)
 			{
 				dprintf("rgb_matrix_get_hue()=%d",rgb_matrix_get_hue());
@@ -72,7 +72,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
 					blink_cnt=1;
 			}
 			return true;
-		case RGB_VAI:
+		case RM_VALU:
 			if (record->event.pressed)
 			{
 				dprintf("rgb_matrix_get_hue()=%d",rgb_matrix_get_hue());
@@ -80,7 +80,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
 					blink_cnt=1;
 			}
 			return true;
-		case RGB_SPI:
+		case RM_SPDU:
 			if (record->event.pressed)
 			{
 				dprintf("rgb_matrix_get_speed()=%d",rgb_matrix_get_speed());
@@ -95,7 +95,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
 				}
 			}
 			return true;			
-		case RGB_SPD:
+		case RM_SPDD:
 			if (record->event.pressed)
 			{
 				dprintf("rgb_matrix_get_speed()=%d",rgb_matrix_get_speed());
