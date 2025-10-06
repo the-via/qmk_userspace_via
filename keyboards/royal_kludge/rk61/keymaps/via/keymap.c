@@ -60,6 +60,6 @@ bool rgb_matrix_indicators_user(void) {
         }
     }
 
-    return true;
+    return false;
 }
 #endif
