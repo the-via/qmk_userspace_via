@@ -51,12 +51,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 #ifdef CAPS_LOCK_LED_INDEX
-bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+bool rgb_matrix_indicators_user(void) {
     if (host_keyboard_led_state().caps_lock) {
-        RGB_MATRIX_INDICATOR_SET_COLOR(CAPS_LOCK_LED_INDEX, 255, 255, 255);
+        rgb_matrix_set_color(CAPS_LOCK_LED_INDEX, 255, 255, 255);
     } else {
         if (!rgb_matrix_get_flags()) {
-            RGB_MATRIX_INDICATOR_SET_COLOR(CAPS_LOCK_LED_INDEX, 0, 0, 0);
+            rgb_matrix_set_color(CAPS_LOCK_LED_INDEX, 0, 0, 0);
         }
     }
 
