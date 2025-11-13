@@ -2,16 +2,6 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 #include QMK_KEYBOARD_H
 
-typedef union {
-    uint32_t raw;
-    struct {
-        bool win_lock :1;
-        bool arrow_lock :1;
-    };
-} user_config_t;
-
-user_config_t user_config;
-
 enum layers {
     WIN_BASE,
     MAC_BASE,
