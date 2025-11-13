@@ -61,7 +61,7 @@ void set_second_rgb_row(bool is_active) {
 void keyboard_post_init_user(void) {
     rgblight_disable_noeeprom();
     wait_ms(20);
-    eeconfig_read_user_datablock(&is_second_rgb_row_active);
+    eeconfig_read_user_datablock(&is_second_rgb_row_active, 0, sizeof(is_second_rgb_row_active));
     set_second_rgb_row(is_second_rgb_row_active);
     rgblight_reload_from_eeprom();
     rgblight_set();
@@ -72,7 +72,7 @@ void eeconfig_init_user(void) {  // EEPROM is getting reset!
     // Define the defualt value and write it to EEPROM
     is_second_rgb_row_active = true;
     set_second_rgb_row(is_second_rgb_row_active);
-    eeconfig_update_user_datablock(&is_second_rgb_row_active);
+    eeconfig_update_user_datablock(&is_second_rgb_row_active, 0, sizeof(is_second_rgb_row_active));
 
     // Disable rgblight by default on EEPROM initialization
     rgblight_disable();
@@ -121,7 +121,7 @@ void secondrow_config_get_value( uint8_t *data )
 
 void secondrow_config_save(void)
 {
-    eeconfig_update_user_datablock(&is_second_rgb_row_active);
+    eeconfig_update_user_datablock(&is_second_rgb_row_active, 0, sizeof(is_second_rgb_row_active));
 }
 
 void via_custom_value_command_kb(uint8_t *data, uint8_t length) {
