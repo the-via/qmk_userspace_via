@@ -21,7 +21,7 @@ enum custom_keycodes {
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    
+
     LAYOUT(
         KC_TAB, LT(2, KC_Q), KC_W, KC_E, KC_R, KC_T,                             KC_Y, KC_U, KC_I, KC_O, ALT_T(KC_P),
         KC_LCTL, KC_A, KC_S, LT(2, KC_D), KC_F, KC_G,               SWITCH_LANG, KC_H, KC_J, LT(2, KC_K), KC_L, KC_ENT,
@@ -80,11 +80,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 bool encoder_update_user(uint8_t index, bool clockwise) {
-    
+
     if (clockwise) {
-        tap_code(KC_MS_WH_UP);
+        tap_code(MS_WHLU);
     } else {
-        tap_code(KC_MS_WH_DOWN);
+        tap_code(MS_WHLD);
     }
 
     return true;
