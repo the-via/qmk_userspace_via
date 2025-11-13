@@ -12,9 +12,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_P0,   MO(1),   KC_PDOT, KC_PENT
   ),
   [1] = LAYOUT_ortho_4x4(
-    RGB_TOG, KC_PSLS, KC_PAST, KC_PMNS,
+    RM_TOGG, KC_PSLS, KC_PAST, KC_PMNS,
     KC_PGUP, KC_HOME, KC_UP,   KC_END,
     KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT,
-    RGB_MOD, _______, KC_VOLD, KC_VOLU
+    RM_NEXT, _______, KC_VOLD, KC_VOLU
   )
 };
