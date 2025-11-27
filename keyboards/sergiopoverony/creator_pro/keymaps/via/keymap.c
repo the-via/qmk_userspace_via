@@ -13,7 +13,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
- 
+
  #include QMK_KEYBOARD_H
 
 /* enum layers num */
@@ -28,7 +28,7 @@ enum layer_number {
 bool encoder_update_user(uint8_t index, bool clockwise) {
     if (index == 0) {
         switch (get_highest_layer(layer_state)) {
-			
+
             case _HOME:
                 if (clockwise) {
                     tap_code(KC_VOLU);
@@ -36,15 +36,15 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
                     tap_code(KC_VOLD);
                 }
                 break;
-				
+
             case _RED:
                 if (clockwise) {
-                    tap_code(KC_MS_WH_UP);
+                    tap_code(MS_WHLU);
                 } else {
-                    tap_code(KC_MS_WH_DOWN);
+                    tap_code(MS_WHLD);
                 }
-                break;		
-				
+                break;
+
             case _BLUE:
 			    if (clockwise) {
                     tap_code(KC_PGUP);
@@ -52,7 +52,7 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
                     tap_code(KC_PGDN);
                 }
                 break;
-				
+
             case _GREEN:
             default:
                 if (clockwise) {
@@ -71,30 +71,30 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_HOME] = LAYOUT(
     KC_1, KC_2, KC_3, KC_4,
-									TO(_RED), 
+									TO(_RED),
 	KC_5, KC_6, KC_7, KC_8
     ),
-	
+
   [_RED] = LAYOUT(
     KC_Q, KC_W, KC_E, KC_R,
-									TO(_BLUE), 
+									TO(_BLUE),
 	KC_A, KC_S, KC_D, KC_F
     ),
-	
+
   [_BLUE] = LAYOUT(
     KC_1, KC_2, KC_3, KC_4,
-									TO(_GREEN), 
+									TO(_GREEN),
 	KC_5, KC_6, KC_7, KC_8
     ),
-	
+
   [_GREEN] = LAYOUT(
     KC_1, KC_2, KC_3, KC_4,
-									TO(_HOME), 
+									TO(_HOME),
 	KC_5, KC_6, KC_7, KC_8
     ),
 };
 
- 	
+
 /* Select led layout */
 layer_state_t layer_state_set_user(layer_state_t state)
 {

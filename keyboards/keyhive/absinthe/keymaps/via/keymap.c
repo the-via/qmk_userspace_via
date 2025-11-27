@@ -58,9 +58,9 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
                 break;
             default:
                 if (clockwise) {
-                    tap_code(KC_WH_D);
+                    tap_code(MS_WHLD);
                 } else {
-                    tap_code(KC_WH_U);
+                    tap_code(MS_WHLU);
                 }
                 break;
         }
