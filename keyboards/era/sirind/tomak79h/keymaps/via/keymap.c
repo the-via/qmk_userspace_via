@@ -2,6 +2,8 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 #include QMK_KEYBOARD_H
+#include "keyboards/era/sirind/common/tomak79_custom_ui.c"
+#include "keyboards/era/sirind/common/tomak79_custom_ui.h"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
