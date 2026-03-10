@@ -1,0 +1,3 @@
+ENCODER_MAP_ENABLE = yes
+VIA_ENABLE = yes
+CONVERT_TO = rp2040_ce
