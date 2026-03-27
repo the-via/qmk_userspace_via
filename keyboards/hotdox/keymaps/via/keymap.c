@@ -121,10 +121,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // MEDIA AND MOUSE
 [MDIA] = LAYOUT_ergodox(
        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-       KC_TRNS, KC_TRNS, KC_TRNS, KC_MS_UP, KC_TRNS, KC_TRNS, KC_TRNS,
-       KC_TRNS, KC_TRNS, KC_MS_LEFT, KC_MS_DOWN, KC_MS_RIGHT, KC_TRNS,
+       KC_TRNS, KC_TRNS, KC_TRNS, MS_UPP, KC_TRNS, KC_TRNS, KC_TRNS,
+       KC_TRNS, KC_TRNS, MS_LEFTEFT, MS_DOWN, MS_RGHT, KC_TRNS,
        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-       KC_TRNS, KC_TRNS, KC_TRNS, KC_BTN1, KC_BTN2,
+       KC_TRNS, KC_TRNS, KC_TRNS, MS_BTN1, MS_BTN2,
                                            KC_TRNS, KC_TRNS,
                                                     KC_TRNS,
                                   KC_TRNS, KC_TRNS, KC_TRNS,
