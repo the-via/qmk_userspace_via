@@ -23,7 +23,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                   KC_P7,    KC_P8,     KC_P9,     KC_PPLS,
                   KC_P4,    KC_P5,     KC_P6,     KC_PPLS,
                   KC_P1,    KC_P2,     KC_P3,     KC_PENT,
-        KC_MUTE,  KC_P0,    KC_P0,     KC_PDOT,   KC_PENT 
+        KC_MUTE,  KC_P0,    KC_P0,     KC_PDOT,   KC_PENT
     ),
     [1] = LAYOUT_all(
                   KC_TRNS,  CK_DOWN,   CK_UP,     CK_RST,
@@ -31,7 +31,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                   KC_TRNS,  KC_TRNS,   KC_TRNS,   KC_TRNS,
                   KC_TRNS,  KC_TRNS,   KC_TRNS,   KC_TRNS,
                   KC_TRNS,  KC_TRNS,   KC_TRNS,   KC_TRNS,
-        CK_TOGG,  KC_TRNS,  KC_TRNS,   KC_TRNS,   KC_TRNS 
+        CK_TOGG,  KC_TRNS,  KC_TRNS,   KC_TRNS,   KC_TRNS
     ),
     [2] = LAYOUT_all(
                   KC_TRNS,  KC_TRNS,   KC_TRNS,   KC_TRNS,
@@ -39,7 +39,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                   KC_TRNS,  KC_TRNS,   KC_TRNS,   KC_TRNS,
                   KC_TRNS,  KC_TRNS,   KC_TRNS,   KC_TRNS,
                   KC_TRNS,  KC_TRNS,   KC_TRNS,   KC_TRNS,
-        KC_TRNS,  KC_TRNS,  KC_TRNS,   KC_TRNS,   KC_TRNS 
+        KC_TRNS,  KC_TRNS,  KC_TRNS,   KC_TRNS,   KC_TRNS
     ),
     [3] = LAYOUT_all(
                   QK_BOOT,  KC_TRNS,   KC_TRNS,   KC_TRNS,
@@ -47,21 +47,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                   KC_TRNS,  KC_TRNS,   KC_TRNS,   KC_TRNS,
                   KC_TRNS,  KC_TRNS,   KC_TRNS,   KC_TRNS,
                   KC_TRNS,  KC_TRNS,   KC_TRNS,   KC_TRNS,
-        KC_TRNS,  KC_TRNS,  KC_TRNS,   KC_TRNS,   KC_TRNS 
+        KC_TRNS,  KC_TRNS,  KC_TRNS,   KC_TRNS,   KC_TRNS
     )
 };
 
 #if defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
     [0] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
-    [1] = { ENCODER_CCW_CW(RGB_HUD, RGB_HUI) },
-    [2] = { ENCODER_CCW_CW(RGB_SAD, RGB_SAI) },
-    [3] = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI) }
+    [1] = { ENCODER_CCW_CW(RM_HUED, RM_HUEU) },
+    [2] = { ENCODER_CCW_CW(RM_SATD, RM_SATU) },
+    [3] = { ENCODER_CCW_CW(RM_VALD, RM_VALU) }
 };
 #endif
 
 /* Setting layout options and debugging text indicators */
-void via_set_layout_options_kb(uint32_t value) { 
+void via_set_layout_options_kb(uint32_t value) {
   via_layouts.raw = value;
   #ifdef CONSOLE_ENABLE
     if (via_layouts.split_zero && via_layouts.split_enter && via_layouts.split_plus){
@@ -77,7 +77,7 @@ void via_set_layout_options_kb(uint32_t value) {
     } else if (!(via_layouts.split_zero) && via_layouts.split_enter && !(via_layouts.split_plus)) {
       xprintf("SE is the only layout active with a value of: %d\n", value);
     } else if (via_layouts.split_zero && !(via_layouts.split_enter) && !(via_layouts.split_plus)){
-      xprintf("SZ is the only layout active with a value of: %d\n", value); 
+      xprintf("SZ is the only layout active with a value of: %d\n", value);
     } else {
       xprintf("The base layout is active with a value of: %d\n", value);
     }

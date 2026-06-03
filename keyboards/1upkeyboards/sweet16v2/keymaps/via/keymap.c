@@ -25,62 +25,62 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [1] = LAYOUT_ortho_4x4(
-    RGB_TOG,   RGB_HUI,    RGB_SAI,    RGB_VAI,
-    RGB_MOD,   RGB_HUD,    RGB_SAD,    RGB_VAD,
-    RGB_SPD,   RGB_SPI,    KC_TRNS,    KC_TRNS,
+    RM_TOGG,   RM_HUEU,    RM_SATU,    RM_VALU,
+    RM_NEXT,   RM_HUED,    RM_SATD,    RM_VALD,
+    RM_SPDD,   RM_SPDU,    KC_TRNS,    KC_TRNS,
     KC_TRNS,   KC_TRNS,    KC_TRNS,    QK_BOOT
   ),
 
-  [2] = LAYOUT_ortho_4x4( 
+  [2] = LAYOUT_ortho_4x4(
     KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
     KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
     KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
     KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS
   ),
 
-  [3] = LAYOUT_ortho_4x4( 
+  [3] = LAYOUT_ortho_4x4(
     KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
     KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
     KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
     KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS
   ),
 
-  [4] = LAYOUT_ortho_4x4( 
+  [4] = LAYOUT_ortho_4x4(
     KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
     KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
     KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
     KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS
   ),
 
-  [5] = LAYOUT_ortho_4x4( 
+  [5] = LAYOUT_ortho_4x4(
     KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
     KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
     KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
     KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS
   ),
 
-  [6] = LAYOUT_ortho_4x4( 
+  [6] = LAYOUT_ortho_4x4(
     KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
     KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
     KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
     KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS
   ),
 
-  [7] = LAYOUT_ortho_4x4( 
+  [7] = LAYOUT_ortho_4x4(
     KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
     KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
     KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
     KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS
   ),
 
-  [8] = LAYOUT_ortho_4x4( 
+  [8] = LAYOUT_ortho_4x4(
     KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
     KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
     KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
     KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS
   ),
 
-  [9] = LAYOUT_ortho_4x4( 
+  [9] = LAYOUT_ortho_4x4(
     KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
     KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
     KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
