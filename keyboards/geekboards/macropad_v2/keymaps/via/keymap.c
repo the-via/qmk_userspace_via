@@ -29,8 +29,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ALT_TAB,        KC_MPRV, KC_MNXT, KC_MPLY
     ),
     [1] = LAYOUT_ortho_2x4(
-        KC_TRNS, RGB_VAI, RGB_HUI, RGB_SPI,
-        RGB_MOD, RGB_VAD, RGB_HUD, RGB_SPD
+        KC_TRNS, RM_VALU, RM_HUEU, RM_SPDU,
+        RM_NEXT, RM_VALD, RM_HUED, RM_SPDD
     ),
     [2] = LAYOUT_ortho_2x4(
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
@@ -44,7 +44,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 //------------ SUPER ALTTAB ---------------
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {               
+    switch (keycode) {
         case ALT_TAB:
             if (record->event.pressed) {
                 if (!is_alt_tab_active) {
@@ -61,7 +61,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
 
-void matrix_scan_user(void) {     
+void matrix_scan_user(void) {
     if (is_alt_tab_active) {
         if (timer_elapsed(alt_tab_timer) > 1000) {
             unregister_code(KC_LALT);

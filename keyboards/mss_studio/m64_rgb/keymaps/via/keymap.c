@@ -29,10 +29,10 @@ enum layer_names {
 };
 
 enum user_rgb_mode {
-    RGB_MODE_ALL,
-    RGB_MODE_KEYLIGHT,
-    RGB_MODE_UNDERGLOW,
-    RGB_MODE_NONE,
+    RM_NEXTE_ALL,
+    RM_NEXTE_KEYLIGHT,
+    RM_NEXTE_UNDERGLOW,
+    RM_NEXTE_NONE,
 };
 
 typedef union {
@@ -97,29 +97,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /*  Row:    0        1        2        3        4        5        6        7        8        9        10       11       12       13     */
     [_FN]   = LAYOUT_64_ansi(
                 KC_GRV,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_DEL,
-                QK_BOOT, _______, _______, _______, _______, _______, _______, _______, KC_INS,  _______, KC_PSCR, _______, RGB_HUI, RGB_MOD,
-                _______, _______, _______, _______, _______, _______, _______, _______, _______, RGB_TOG, _______, _______,          _______,
-                _______, _______, _______, KC_CALC, _______, _______, _______, KC_MUTE, KC_VOLD, KC_VOLU, _______, _______, RGB_VAI, _______,
-                _______, _______, _______,                   _______,                            _______, _______, RGB_SPD, RGB_VAD, RGB_SPI
+                QK_BOOT, _______, _______, _______, _______, _______, _______, _______, KC_INS,  _______, KC_PSCR, _______, RM_HUEU, RM_NEXT,
+                _______, _______, _______, _______, _______, _______, _______, _______, _______, RM_TOGG, _______, _______,          _______,
+                _______, _______, _______, KC_CALC, _______, _______, _______, KC_MUTE, KC_VOLD, KC_VOLU, _______, _______, RM_VALU, _______,
+                _______, _______, _______,                   _______,                            _______, _______, RM_SPDD, RM_VALD, RM_SPDU
             ),
 };
 
 void keyboard_post_init_user(void) {
     user_config.raw = eeconfig_read_user();
     switch (user_config.rgb_mode) {
-        case RGB_MODE_ALL:
+        case RM_NEXTE_ALL:
             rgb_matrix_set_flags(LED_FLAG_ALL);
             rgb_matrix_enable_noeeprom();
             break;
-        case RGB_MODE_KEYLIGHT:
+        case RM_NEXTE_KEYLIGHT:
             rgb_matrix_set_flags(LED_FLAG_KEYLIGHT | LED_FLAG_MODIFIER | LED_FLAG_INDICATOR);
             rgb_matrix_set_color_all(0, 0, 0);
             break;
-        case RGB_MODE_UNDERGLOW:
+        case RM_NEXTE_UNDERGLOW:
             rgb_matrix_set_flags(LED_FLAG_UNDERGLOW);
             rgb_matrix_set_color_all(0, 0, 0);
             break;
-        case RGB_MODE_NONE:
+        case RM_NEXTE_NONE:
             rgb_matrix_set_flags(LED_FLAG_NONE);
             rgb_matrix_set_color_all(0, 0, 0);
             break;
@@ -128,31 +128,31 @@ void keyboard_post_init_user(void) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case RGB_TOG:
+        case RM_TOGG:
             if (record->event.pressed) {
                 switch (rgb_matrix_get_flags()) {
                     case LED_FLAG_ALL: {
                         rgb_matrix_set_flags(LED_FLAG_KEYLIGHT | LED_FLAG_MODIFIER | LED_FLAG_INDICATOR);
                         rgb_matrix_set_color_all(0, 0, 0);
-                        user_config.rgb_mode = RGB_MODE_KEYLIGHT;
+                        user_config.rgb_mode = RM_NEXTE_KEYLIGHT;
                     }
                     break;
                     case (LED_FLAG_KEYLIGHT | LED_FLAG_MODIFIER | LED_FLAG_INDICATOR): {
                         rgb_matrix_set_flags(LED_FLAG_UNDERGLOW);
                         rgb_matrix_set_color_all(0, 0, 0);
-                        user_config.rgb_mode = RGB_MODE_UNDERGLOW;
+                        user_config.rgb_mode = RM_NEXTE_UNDERGLOW;
                     }
                     break;
                     case (LED_FLAG_UNDERGLOW): {
                         rgb_matrix_set_flags(LED_FLAG_NONE);
                         rgb_matrix_set_color_all(0, 0, 0);
-                        user_config.rgb_mode = RGB_MODE_NONE;
+                        user_config.rgb_mode = RM_NEXTE_NONE;
                     }
                     break;
                     default: {
                         rgb_matrix_set_flags(LED_FLAG_ALL);
                         rgb_matrix_enable_noeeprom();
-                        user_config.rgb_mode = RGB_MODE_ALL;
+                        user_config.rgb_mode = RM_NEXTE_ALL;
                     }
                     break;
                 }

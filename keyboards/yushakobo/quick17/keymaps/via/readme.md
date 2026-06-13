@@ -29,16 +29,16 @@
     |-------+-------+-------+-------+--------+--------|
     | Ctrl  |   [   |   ]   | PgDn  | PgUp   | Ctrl+Z |
     |-------+-------+-------+-------+--------+--------|
-    | Shift |   FN  |RGB_TOG|CONTROL| (NONE) | (NONE) |
+    | Shift |   FN  |RM_TOGG|CONTROL| (NONE) | (NONE) |
     `-------------------------------------------------'
 ```
 
 ## FN Layer
 ```
     ,---------------------------------------------------.
-    | Esc   | LANG  | (NONE) |RGB_TOG| Media > | Vol+   |
+    | Esc   | LANG  | (NONE) |RM_TOGG| Media > | Vol+   |
     |-------+-------+--------+-------+---------+--------|
-    | Caps  | Numlk | (NONE) |RGB_MOD| Media < | Vol-   |
+    | Caps  | Numlk | (NONE) |RM_NEXT| Media < | Vol-   |
     |-------+-------+--------+-------+---------+--------|
     | Win   | mac   | EE_CLR | QK_BOOT | CONTROL | Mute   |
     `---------------------------------------------------'
