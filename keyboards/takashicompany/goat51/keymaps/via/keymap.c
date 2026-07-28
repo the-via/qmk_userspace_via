@@ -95,7 +95,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 #if defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
-    { ENCODER_CCW_CW(KC_MS_WH_UP, KC_MS_WH_DOWN) },
+    { ENCODER_CCW_CW(MS_WHLU, MS_WHLD) },
     { ENCODER_CCW_CW(KC_TRNS, KC_TRNS) },
     { ENCODER_CCW_CW(KC_TRNS, KC_TRNS) },
     { ENCODER_CCW_CW(KC_TRNS, KC_TRNS) },

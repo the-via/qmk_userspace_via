@@ -9,7 +9,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         LT(1, KC_ESC), KC_Q, KC_W, KC_E, 
         KC_TAB, KC_A, KC_S, KC_D,
         KC_LSFT, KC_Z, KC_X, KC_C, KC_V,
-        KC_WH_U, KC_WH_D
+        MS_WHLU, MS_WHLD
     ),
 
     [1] = LAYOUT(
